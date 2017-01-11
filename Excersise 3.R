@@ -6,9 +6,9 @@
 is.leap <- function(year){
  test = try(year + 10, silent = TRUE)
  if (class(test) == 'try-error'){
-  return("Error : argument of class numeric expected")}
+  stop("argument of class numeric expected", call. = FALSE)}
  else if (year < 1752) {
-  return(paste(toString(year),"is out of range"))}
+  warning(paste(toString(year),"is out of range"), call. = FALSE)}
  else if (year %% 4 != 0) {
   return(FALSE)}
  else if (year %% 100 != 0) {
