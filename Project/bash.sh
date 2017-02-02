@@ -125,7 +125,7 @@ echo ""
 echo "Rasterizing Sea vector"
 gdal_rasterize  -burn -9999  -a_srs "+proj=longlat +ellps=WGS84" -tr  "$size" "$size" -a_nodata 0 -ot Int16 Temp/ne_10m_ocean.shp Temp/rawoceanraster.tif
 
-echo""
+echo ""
 echo "Preprocessing sea raster"
 Rscript R/Rm_Caspian.R 
 
@@ -138,7 +138,7 @@ echo "Creating working raster"
 gdal_merge.py Temp/DEM_resample.tif Temp/ocean.tif -o Output/workingraster.tif
 Rscript R/Rm_antartica.R "$ANT"
 			
-echo""
+echo ""
 echo "Calculating new sea map"
 Rscript R/Sea_rise.R "$level"
 rm Output/workingraster.tif
