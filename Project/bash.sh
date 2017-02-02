@@ -12,7 +12,7 @@ echo ""
 while true; do
    read -p "Is this the first time running this script [y/n]?" yn
     case $yn in
-        [Yy]* ) Rscript R/Set-up.R ; break;;
+        [Yy]*) Rscript R/Set-up.R ; break;;
         [Nn]*) break;;
         * ) echo "Please answer yes or no.";;
     	esac
